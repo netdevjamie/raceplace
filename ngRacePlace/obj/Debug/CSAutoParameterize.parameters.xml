@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="RacePlaceDbfEntities-Web.config Connection String" description="RacePlaceDbfEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/RacePlaceDbf.csdl|res://*/RacePlaceDbf.ssdl|res://*/RacePlaceDbf.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=v7tro2qvy6.database.windows.net,1433;initial catalog=RacePlaceDbf;persist security info=True;user id=netdevjamie@v7tro2qvy6;password=Cloud9^ir;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Jamie\\Documents\\Visual\ Studio\ 2013\\Projects\\ngRacePlace\\ngRacePlace\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RacePlaceDbfEntities']/@connectionString" />
+  </parameter>
+</parameters>

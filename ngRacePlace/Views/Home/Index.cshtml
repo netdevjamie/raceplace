@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "View1";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- http://docs.telerik.com/kendo-ui/getting-started/javascript-dependencies#cdn -->
+    
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.default.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/content/bootstrap.css")">
+</head>
+<body>
+    <h1>Race Place</h1>
+    <div id="grid"></div>
+    <br />
+    <div>
+        <h2>All Entrants</h2>
+        <ul id="entrants" />
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+    <script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.web.min.js"></script>
+    <script src="@Url.Content("~/scripts/kendogrid.js")"></script>
+
+
+</body>
+</html>
+

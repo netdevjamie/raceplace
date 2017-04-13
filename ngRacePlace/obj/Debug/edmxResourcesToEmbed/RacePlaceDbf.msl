@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RacePlaceDbfModelStoreContainer" CdmEntityContainer="RacePlaceDbfEntities">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DatabaseLogs">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.DatabaseLog">
+        <MappingFragment StoreEntitySet="DatabaseLog">
+          <ScalarProperty Name="DatabaseLogID" ColumnName="DatabaseLogID" />
+          <ScalarProperty Name="PostTime" ColumnName="PostTime" />
+          <ScalarProperty Name="DatabaseUser" ColumnName="DatabaseUser" />
+          <ScalarProperty Name="Event" ColumnName="Event" />
+          <ScalarProperty Name="Schema" ColumnName="Schema" />
+          <ScalarProperty Name="Object" ColumnName="Object" />
+          <ScalarProperty Name="TSQL" ColumnName="TSQL" />
+          <ScalarProperty Name="XmlEvent" ColumnName="XmlEvent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entrants">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.Entrant">
+        <MappingFragment StoreEntitySet="Entrant">
+          <ScalarProperty Name="EntrantId" ColumnName="EntrantId" />
+          <ScalarProperty Name="RaceNumber" ColumnName="RaceNumber" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EntrantEvents">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.EntrantEvent">
+        <MappingFragment StoreEntitySet="EntrantEvent">
+          <ScalarProperty Name="EntrantEventId" ColumnName="EntrantEventId" />
+          <ScalarProperty Name="EntrantId" ColumnName="EntrantId" />
+          <ScalarProperty Name="RaceId" ColumnName="RaceId" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="RaceGroupTypeId" ColumnName="RaceGroupTypeId" />
+          <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorLogs">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.ErrorLog">
+        <MappingFragment StoreEntitySet="ErrorLog">
+          <ScalarProperty Name="ErrorLogID" ColumnName="ErrorLogID" />
+          <ScalarProperty Name="ErrorTime" ColumnName="ErrorTime" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ErrorNumber" ColumnName="ErrorNumber" />
+          <ScalarProperty Name="ErrorSeverity" ColumnName="ErrorSeverity" />
+          <ScalarProperty Name="ErrorState" ColumnName="ErrorState" />
+          <ScalarProperty Name="ErrorProcedure" ColumnName="ErrorProcedure" />
+          <ScalarProperty Name="ErrorLine" ColumnName="ErrorLine" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+          <ScalarProperty Name="EventTypeName" ColumnName="EventTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IndividualResults">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.IndividualResult">
+        <MappingFragment StoreEntitySet="IndividualResults">
+          <ScalarProperty Name="IndividualResultId" ColumnName="IndividualResultId" />
+          <ScalarProperty Name="EntrantId" ColumnName="EntrantId" />
+          <ScalarProperty Name="RaceNumber" ColumnName="RaceNumber" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="OverallTime" ColumnName="OverallTime" />
+          <ScalarProperty Name="OverallRank" ColumnName="OverallRank" />
+          <ScalarProperty Name="SwimTime" ColumnName="SwimTime" />
+          <ScalarProperty Name="SwimRank" ColumnName="SwimRank" />
+          <ScalarProperty Name="Tran1Time" ColumnName="Tran1Time" />
+          <ScalarProperty Name="Tran1Rank" ColumnName="Tran1Rank" />
+          <ScalarProperty Name="BikeTime" ColumnName="BikeTime" />
+          <ScalarProperty Name="BikeRank" ColumnName="BikeRank" />
+          <ScalarProperty Name="Tran2Time" ColumnName="Tran2Time" />
+          <ScalarProperty Name="Tran2Rank" ColumnName="Tran2Rank" />
+          <ScalarProperty Name="RunTime" ColumnName="RunTime" />
+          <ScalarProperty Name="RunRank" ColumnName="RunRank" />
+          <ScalarProperty Name="RaceId" ColumnName="RaceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Races">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.Race">
+        <MappingFragment StoreEntitySet="Race">
+          <ScalarProperty Name="RaceId" ColumnName="RaceId" />
+          <ScalarProperty Name="RaceDetailId" ColumnName="RaceDetailId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SeriesNumber" ColumnName="SeriesNumber" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RaceDetails">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.RaceDetail">
+        <MappingFragment StoreEntitySet="RaceDetail">
+          <ScalarProperty Name="RaceDetailId" ColumnName="RaceDetailId" />
+          <ScalarProperty Name="DistanceDescription" ColumnName="DistanceDescription" />
+          <ScalarProperty Name="RaceDirector" ColumnName="RaceDirector" />
+          <ScalarProperty Name="TimingResultsBy" ColumnName="TimingResultsBy" />
+          <ScalarProperty Name="ResultsQuestionToName" ColumnName="ResultsQuestionToName" />
+          <ScalarProperty Name="ResultsQuestionsToEmail" ColumnName="ResultsQuestionsToEmail" />
+          <ScalarProperty Name="RaceWebsiteUrl" ColumnName="RaceWebsiteUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RaceGroups">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.RaceGroup">
+        <MappingFragment StoreEntitySet="RaceGroup">
+          <ScalarProperty Name="RaceGroupTypeId" ColumnName="RaceGroupTypeId" />
+          <ScalarProperty Name="RaceGroupDesc" ColumnName="RaceGroupDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RaceResults">
+      <EntityTypeMapping TypeName="RacePlaceDbfModel.RaceResult">
+        <MappingFragment StoreEntitySet="RaceResults">
+          <ScalarProperty Name="EntrantEventId" ColumnName="EntrantEventId" />
+          <ScalarProperty Name="RaceId" ColumnName="RaceId" />
+          <ScalarProperty Name="RaceNumber" ColumnName="RaceNumber" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="RaceGroupDesc" ColumnName="RaceGroupDesc" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="EventTypeName" ColumnName="EventTypeName" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="RacePlaceDbfModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="uspLogError" FunctionName="RacePlaceDbfModel.Store.uspLogError" />
+    <FunctionImportMapping FunctionImportName="uspPrintError" FunctionName="RacePlaceDbfModel.Store.uspPrintError" />
+  </EntityContainerMapping>
+</Mapping>

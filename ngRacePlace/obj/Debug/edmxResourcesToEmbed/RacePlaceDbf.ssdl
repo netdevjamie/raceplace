@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RacePlaceDbfModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+    <Property Name="User_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DatabaseLog">
+    <Key>
+      <PropertyRef Name="DatabaseLogID" />
+    </Key>
+    <Property Name="DatabaseLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostTime" Type="datetime" Nullable="false" />
+    <Property Name="DatabaseUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Event" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Schema" Type="nvarchar" MaxLength="128" />
+    <Property Name="Object" Type="nvarchar" MaxLength="128" />
+    <Property Name="TSQL" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="XmlEvent" Type="xml" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entrant">
+    <Key>
+      <PropertyRef Name="EntrantId" />
+    </Key>
+    <Property Name="EntrantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RaceNumber" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EntrantEvent">
+    <Key>
+      <PropertyRef Name="EntrantEventId" />
+    </Key>
+    <Property Name="EntrantEventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EntrantId" Type="int" Nullable="false" />
+    <Property Name="RaceId" Type="int" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="RaceGroupTypeId" Type="int" />
+    <Property Name="EventTypeId" Type="int" Nullable="false" />
+    <Property Name="Time" Type="time" Precision="7" />
+    <Property Name="Rank" Type="int" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="ErrorLogID" />
+    </Key>
+    <Property Name="ErrorLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ErrorTime" Type="datetime" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ErrorNumber" Type="int" Nullable="false" />
+    <Property Name="ErrorSeverity" Type="int" />
+    <Property Name="ErrorState" Type="int" />
+    <Property Name="ErrorProcedure" Type="nvarchar" MaxLength="126" />
+    <Property Name="ErrorLine" Type="int" />
+    <Property Name="ErrorMessage" Type="nvarchar" MaxLength="4000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventTypeId" />
+    </Key>
+    <Property Name="EventTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="IndividualResults">
+    <Key>
+      <PropertyRef Name="IndividualResultId" />
+    </Key>
+    <Property Name="IndividualResultId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EntrantId" Type="int" />
+    <Property Name="RaceNumber" Type="int" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="OverallTime" Type="time" Precision="7" />
+    <Property Name="OverallRank" Type="int" />
+    <Property Name="SwimTime" Type="time" Precision="7" />
+    <Property Name="SwimRank" Type="int" />
+    <Property Name="Tran1Time" Type="time" Precision="7" />
+    <Property Name="Tran1Rank" Type="int" />
+    <Property Name="BikeTime" Type="time" Precision="7" />
+    <Property Name="BikeRank" Type="int" />
+    <Property Name="Tran2Time" Type="time" Precision="7" />
+    <Property Name="Tran2Rank" Type="int" />
+    <Property Name="RunTime" Type="time" Precision="7" />
+    <Property Name="RunRank" Type="int" />
+    <Property Name="RaceId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Race">
+    <Key>
+      <PropertyRef Name="RaceId" />
+    </Key>
+    <Property Name="RaceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RaceDetailId" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="SeriesNumber" Type="int" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RaceDetail">
+    <Key>
+      <PropertyRef Name="RaceDetailId" />
+    </Key>
+    <Property Name="RaceDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DistanceDescription" Type="nvarchar" MaxLength="200" />
+    <Property Name="RaceDirector" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimingResultsBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ResultsQuestionToName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ResultsQuestionsToEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="RaceWebsiteUrl" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RaceGroup">
+    <Key>
+      <PropertyRef Name="RaceGroupTypeId" />
+    </Key>
+    <Property Name="RaceGroupTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RaceGroupDesc" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RacePlaceDbf.dbo.RaceResults' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RaceResults">
+    <Key>
+      <PropertyRef Name="EntrantEventId" />
+      <PropertyRef Name="RaceId" />
+      <PropertyRef Name="RaceNumber" />
+    </Key>
+    <Property Name="EntrantEventId" Type="int" Nullable="false" />
+    <Property Name="RaceId" Type="int" Nullable="false" />
+    <Property Name="RaceNumber" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="RaceGroupDesc" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="EventTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Time" Type="time" Precision="7" />
+    <Property Name="Rank" Type="int" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EntrantEvent_Entrant">
+    <End Role="Entrant" Type="Self.Entrant" Multiplicity="1" />
+    <End Role="EntrantEvent" Type="Self.EntrantEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entrant">
+        <PropertyRef Name="EntrantId" />
+      </Principal>
+      <Dependent Role="EntrantEvent">
+        <PropertyRef Name="EntrantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EntrantEvent_Event">
+    <End Role="Event" Type="Self.Event" Multiplicity="1" />
+    <End Role="EntrantEvent" Type="Self.EntrantEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="EventTypeId" />
+      </Principal>
+      <Dependent Role="EntrantEvent">
+        <PropertyRef Name="EventTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EntrantEvent_Race">
+    <End Role="Race" Type="Self.Race" Multiplicity="1" />
+    <End Role="EntrantEvent" Type="Self.EntrantEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Race">
+        <PropertyRef Name="RaceId" />
+      </Principal>
+      <Dependent Role="EntrantEvent">
+        <PropertyRef Name="RaceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EntrantEvent_RaceGroup">
+    <End Role="RaceGroup" Type="Self.RaceGroup" Multiplicity="0..1" />
+    <End Role="EntrantEvent" Type="Self.EntrantEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RaceGroup">
+        <PropertyRef Name="RaceGroupTypeId" />
+      </Principal>
+      <Dependent Role="EntrantEvent">
+        <PropertyRef Name="RaceGroupTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IndividualResults_Entrant">
+    <End Role="Entrant" Type="Self.Entrant" Multiplicity="0..1" />
+    <End Role="IndividualResults" Type="Self.IndividualResults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entrant">
+        <PropertyRef Name="EntrantId" />
+      </Principal>
+      <Dependent Role="IndividualResults">
+        <PropertyRef Name="EntrantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Race_RaceDetail">
+    <End Role="RaceDetail" Type="Self.RaceDetail" Multiplicity="0..1" />
+    <End Role="Race" Type="Self.Race" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RaceDetail">
+        <PropertyRef Name="RaceDetailId" />
+      </Principal>
+      <Dependent Role="Race">
+        <PropertyRef Name="RaceDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="uspLogError" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ErrorLogID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="uspPrintError" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="RacePlaceDbfModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DatabaseLog" EntityType="Self.DatabaseLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entrant" EntityType="Self.Entrant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EntrantEvent" EntityType="Self.EntrantEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndividualResults" EntityType="Self.IndividualResults" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Race" EntityType="Self.Race" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RaceDetail" EntityType="Self.RaceDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RaceGroup" EntityType="Self.RaceGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RaceResults" EntityType="Self.RaceResults" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [RaceResults].[EntrantEventId] AS [EntrantEventId], 
+    [RaceResults].[RaceId] AS [RaceId], 
+    [RaceResults].[RaceNumber] AS [RaceNumber], 
+    [RaceResults].[FullName] AS [FullName], 
+    [RaceResults].[Age] AS [Age], 
+    [RaceResults].[Gender] AS [Gender], 
+    [RaceResults].[RaceGroupDesc] AS [RaceGroupDesc], 
+    [RaceResults].[City] AS [City], 
+    [RaceResults].[State] AS [State], 
+    [RaceResults].[EventTypeName] AS [EventTypeName], 
+    [RaceResults].[Time] AS [Time], 
+    [RaceResults].[Rank] AS [Rank]
+    FROM [dbo].[RaceResults] AS [RaceResults]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EntrantEvent_Entrant" Association="Self.FK_EntrantEvent_Entrant">
+      <End Role="Entrant" EntitySet="Entrant" />
+      <End Role="EntrantEvent" EntitySet="EntrantEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EntrantEvent_Event" Association="Self.FK_EntrantEvent_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="EntrantEvent" EntitySet="EntrantEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EntrantEvent_Race" Association="Self.FK_EntrantEvent_Race">
+      <End Role="Race" EntitySet="Race" />
+      <End Role="EntrantEvent" EntitySet="EntrantEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EntrantEvent_RaceGroup" Association="Self.FK_EntrantEvent_RaceGroup">
+      <End Role="RaceGroup" EntitySet="RaceGroup" />
+      <End Role="EntrantEvent" EntitySet="EntrantEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IndividualResults_Entrant" Association="Self.FK_IndividualResults_Entrant">
+      <End Role="Entrant" EntitySet="Entrant" />
+      <End Role="IndividualResults" EntitySet="IndividualResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Race_RaceDetail" Association="Self.FK_Race_RaceDetail">
+      <End Role="RaceDetail" EntitySet="RaceDetail" />
+      <End Role="Race" EntitySet="Race" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

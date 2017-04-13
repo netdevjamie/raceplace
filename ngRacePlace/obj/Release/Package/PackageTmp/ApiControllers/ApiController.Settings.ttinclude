@@ -1,0 +1,29 @@
+﻿<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#
+	var dbContextFileName="RacePlaceDbf.Context.cs";
+	var generateEdmBuilderHelper=true;
+	var needsIDConvention = false;
+	var attemptTabSpaceDetection=false;
+	var generateApiValuesController = true; //controller to help check if the api routing is working using primitive responses
+    var generateODataValuesController = true; //controller to help check if the odata routing is working using primitive responses
+	var keyMap = new Dictionary<string,Tuple<string,string>>(){ 
+	{"ApplicationUserIdentities",Tuple.Create<string,string>("Id","string")},
+	{"AspNetUserLogins",Tuple.Create<string,string>("UserId","string")},
+	{"AspNetRoles",Tuple.Create<string,string>("Id","string")},
+	{"AspNetUserClaims",Tuple.Create<string,string>("Id","int")},
+	{"AspNetUsers",Tuple.Create<string,string>("Id","string")},
+	{"DatabaseLogs",Tuple.Create<string,string>("DatabaseLogID","int")},
+	{"ErrorLogs",Tuple.Create<string,string>("ErrorLogID","int")},
+	{"Events",Tuple.Create<string,string>("EventTypeId","int")},
+	{"RaceGroups",Tuple.Create<string,string>("RaceGroupTypeId","int")},
+	{"RaceResults",Tuple.Create<string,string>("EntrantEventId","int")}
+	};
+	var pluralizeControllers=true;
+	var dbContextClassName="RacePlaceDbfEntities"; //May be xxxEntities
+	var addlNamespaces= new string[]{/* "Project.DataAccess" */}; //sample
+	var noDefaultConstructor = false;
+    var defaultConstructorCreatesContext=true;
+#>
